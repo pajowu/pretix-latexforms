@@ -25,13 +25,13 @@ cmdclass = {
 
 setup(
     name='pretix-latexforms',
-    version='1.0.0',
+    version='1.0.1',
     description='Add option generate PDFs with LaTeX after ordering',
     long_description=long_description,
     url='https://github.com/pajowu/pretix-latexforms',
     author='Karl Engelhardt',
     author_email='pajowu@pajowu.de',
-    install_requires=[],
+    install_requires=['jinja2'],
     packages=find_packages(exclude=['tests', 'tests.*']),
     include_package_data=True,
     cmdclass=cmdclass,
