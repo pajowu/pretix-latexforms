@@ -1,0 +1,3 @@
+recursive-include pretix_latexforms/static *
+recursive-include pretix_latexforms/templates *
+recursive-include pretix_latexforms/locale *

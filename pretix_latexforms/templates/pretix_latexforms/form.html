@@ -1,0 +1,42 @@
+{% extends "pretixcontrol/event/base.html" %}
+{% load i18n %}
+{% load bootstrap3 %}
+{% load static %}
+{% block title %}{% trans "Latex Template" %}{% endblock %}
+{% block content %}
+    <h1>{% trans "Latex Template" %}</h1>
+    <form action="" method="post" class="form-horizontal" data-id="{{ template.id }}">
+        {% csrf_token %}
+        {% bootstrap_form_errors form type='non_fields' %}
+        <div class="row">
+            <div class="col-xs-12 {% if template %}col-lg-10{% endif %}">
+                <fieldset>
+                    <legend>{% trans "General information" %}</legend>
+                    {% bootstrap_field form.title layout="horizontal" %}
+                    {% bootstrap_field form.limit_products layout="horizontal" %}
+                </fieldset>
+                <fieldset id="content">
+                    <legend>{% trans "Latex Template content" %}</legend>
+                    {% bootstrap_field form.text layout="horizontal" %}
+                </fieldset>
+                <div class="form-group submit-group">
+                    <button type="submit" class="btn btn-primary btn-save">
+                        {% trans "Save" %}
+                    </button>
+                </div>
+            </div>
+            {% if template %}
+                <div class="col-xs-12 col-lg-2">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                {% trans "Template history" %}
+                            </h3>
+                        </div>
+                        {% include "pretixcontrol/includes/logs.html" with obj=template %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </form>
+{% endblock %}

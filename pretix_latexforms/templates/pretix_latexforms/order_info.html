@@ -1,0 +1,25 @@
+{% load i18n %}
+{% load eventurl %}
+{% load bootstrap3 %}
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <h3 class="col-md-10 panel-title">
+                    {% trans "Documents" %}
+                </h3>
+            </div>
+        </div>
+        <div class="panel-body">
+            {% for document in documents %}
+            <div class="row cart-row">
+                <div class="col-md-10"><strong>
+                    {{ document.title }}
+                </strong></div>
+                <div class="col-md-2 text-right">
+                    <a class="btn btn-sm btn-default" href="{% eventurl event "plugins:pretix_latexforms:download" event=event secret=order.secret order=order.code template=document.pk %}"><span class="fa fa-download"></span> PDF</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
