@@ -57,7 +57,7 @@ def pretixcontrol_logentry_display(sender, logentry, **kwargs):
         return plains[event_type]
 
 @receiver(order_info, dispatch_uid="latexforms_order_info")
-def order_info(sender, order, request, **kwargs):
+def order_info(sender, order, **kwargs):
     if order.status == Order.STATUS_PAID:
         template = get_template('pretix_latexforms/order_info.html')
         documents = LatexTemplate.objects.filter(event=sender).filter(limit_products__in=order.positions.values_list('item__pk', flat=True))
@@ -67,4 +67,4 @@ def order_info(sender, order, request, **kwargs):
             'event': sender
         }
         t = loader.get_template('pretix_latexforms/order_info.html')
-        return t.render(ctx, request)
+        return t.render(ctx, request=kwargs.get("request"))

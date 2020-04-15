@@ -25,7 +25,7 @@ cmdclass = {
 
 setup(
     name='pretix-latexforms',
-    version='1.0.1',
+    version='1.0.3',
     description='Add option generate PDFs with LaTeX after ordering',
     long_description=long_description,
     url='https://github.com/pajowu/pretix-latexforms',

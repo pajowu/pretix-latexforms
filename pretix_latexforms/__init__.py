@@ -14,7 +14,7 @@ class PluginApp(PluginConfig):
         author = 'Karl Engelhardt'
         description = ugettext_lazy('Add option generate PDFs with LaTeX after ordering')
         visible = True
-        version = '1.0.1'
+        version = '1.0.3'
         compatibility = "pretix>=3.7.0"
 
     def ready(self):
