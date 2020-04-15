@@ -11,7 +11,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('pretixbase', '0150_auto_20200401_1123'),
+        ('pretixbase', '0146_giftcardtransaction_text'),
     ]
 
     operations = [

@@ -15,7 +15,7 @@ class PluginApp(PluginConfig):
         description = ugettext_lazy('Add option generate PDFs with LaTeX after ordering')
         visible = True
         version = '1.0.1'
-        compatibility = "pretix>=2.7.0"
+        compatibility = "pretix>=3.7.0"
 
     def ready(self):
         from . import signals  # NOQA
